@@ -8,7 +8,7 @@
     "email": "truonggiahao24@gmail.com",
     "github": "https://github.com/HaoWasabi",
     "linkedin": "https://linkedin.com/in/hao-truong-855664346",
-    "about": "An Information Technology student at Saigon University, passionate about building practical software and exploring new technologies. I am always looking for opportunities to learn, contribute to impactful projects, and grow every day."
+    "about": "I am an Information Technology student at Saigon University who builds practical software with Python, C#, Java, PHP, and cloud tools. I focus on learning fast, contributing to real projects, and improving every day."
   },
 
   "education": [
@@ -25,6 +25,13 @@
       "period": "03/2026",
       "gpa": null,
       "link": "https://www.coursera.org/account/accomplishments/specialization/CIZNCKC5PNPD"
+    },
+    {
+      "school": "AWS Cloud Clubs",
+      "degree": "AWS CLOUD TRAINING: Networking - Storage - Security - Gen AI",
+      "period": "12/2025",
+      "gpa": null,
+      "link": "https://drive.google.com/file/d/1HtQwadE7v_rI5_rmBGXT4Qd9ncXJCt6D/view?usp=drive_link"
     },
     {
       "school": "LinkedIn",
@@ -61,50 +68,50 @@
   "projects": [
     {
       "title": "GPP-PSO-LSTM",
-      "type": "Research",
+      "type": "Research · Project Lead - Technical Writer",
       "period": "01/2026",
-      "description": "A PSO algorithm for predicting gold prices based on real-time data.",
+      "description": "Applied PSO and LSTM to forecast gold prices from live data using Jupyter and Colab.",
       "tech": ["Jupyter", "Colab"],
       "link": "https://github.com/HaoWasabi/GPP_PSO_LSTM"
     },
     {
       "title": "BuocChanSoiDa",
-      "type": "Website",
+      "type": "Website · Backend Developer",
       "period": "01/2026",
-      "description": "An online platform for street food storytelling and guides.",
-      "tech": ["Python", "Django", "MySQL", "HTML", "CSS"],
+      "description": "Built a street-food storytelling platform with Python, Django, MySQL, and HTML/CSS.",
+      "tech": ["Vibe Coding", "Python", "Django", "MySQL", "HTML/CSS"],
       "link": "https://github.com/HaoWasabi/BuocChanSoiDa"
     },
     {
       "title": "Store Management",
-      "type": "Web & App",
+      "type": "Web & App · Backend Developer",
       "period": "09/2025",
-      "description": "A full-stack online store management system built with .NET MVC and MySQL.",
+      "description": "Developed a full-stack store management system with .NET MVC, C#, and MySQL.",
       "tech": ["C#", ".NET", "MySQL", "MVC"],
       "link": "https://github.com/HaoWasabi/Store_Management"
     },
     {
       "title": "MeepBookery",
-      "type": "Website",
+      "type": "Website · Project Lead - Backend Developer",
       "period": "01/2025",
-      "description": "A complete online bookstore platform built with PHP MVC.",
+      "description": "Built an online bookstore platform with PHP MVC, HTML, CSS, and SQL Server.",
       "tech": ["PHP", "HTML", "CSS", "SQL Server", "MVC"],
       "link": "https://github.com/HaoWasabi/MeepBookery"
     },
     {
       "title": "Library Management",
-      "type": "Desktop App",
+      "type": "Web & App · Backend Developer",
       "period": "01/2025",
-      "description": "A library management system built with WinForms and SQL Server.",
+      "description": "Developed a library management app with WinForms, C#, .NET, and SQL Server.",
       "tech": ["C#", ".NET", "WinForms", "SQL Server"],
       "link": "https://github.com/HaoWasabi/QuanLyThuQuany"
     },
     {
       "title": "Aiko-Novel",
-      "type": "Website",
+      "type": "Website · Backend Developer",
       "period": "01/2024",
-      "description": "An online novel reading platform powered by Django, HTML/CSS, and SQLite.",
-      "tech": ["Python", "Django", "SQLite", "HTML", "CSS"],
+      "description": "Built an online novel platform with Django, HTML/CSS, and SQLite.",
+      "tech": ["Python", "Django", "SQLite", "HTML/CSS"],
       "link": "https://github.com/HaoWasabi/Aiko-Novel"
     }
   ],
@@ -114,34 +121,27 @@
       "role": "Participant in CAREER TALK: IT INTERNSHIP - Break Through Your Internship in the AI Era",
       "org": "Rikkei Academy",
       "period": "04/2026",
-      "description": "Joined a career talk on IT internships in the AI era and learned about the latest trends and internship opportunities."
+      "description": "Joined an internship career talk and gained clearer insight into AI-era hiring trends."
     },
     {
       "role": "Participant in Study Jams 2026: GenAI Express Demo Day",
       "org": "GDG on Campus SGU",
       "period": "04/2026",
-      "description": "Participated in a Gen AI hackathon organized by GDG on Campus SGU.",
+      "description": "Joined a GenAI hackathon and practiced building ideas under time pressure.",
       "link": "https://drive.google.com/file/d/1VC8WwPYDtehWQI4idraJAnXrjYxA1w2J/view?usp=drive_link"
     },
     {
       "role": "Participant in FCAJ Community Day",
       "org": "AWS First Cloud AI Journey",
       "period": "03/2026",
-      "description": "Learned the latest knowledge and trends in Platform Engineering, DevOps, GenAIOps, and the rise of the agentic era.",
+      "description": "Joined a community day and learned about Platform Engineering, DevOps, and GenAIOps.",
       "link": "https://drive.google.com/file/d/1zeaCW3WHFuU1DnrVL-7N48shyPR-0Xfj/view?usp=drive_link"
-    },
-    {
-      "role": "Participant in AWS CLOUD TRAINING: Networking - Storage - Security - Gen AI",
-      "org": "AWS Cloud Clubs",
-      "period": "12/2025",
-      "description": "Completed an in-depth training program on networking, storage, security, and Gen AI organized by AWS Cloud Clubs.",
-      "link": "https://drive.google.com/file/d/1HtQwadE7v_rI5_rmBGXT4Qd9ncXJCt6D/view?usp=drive_link"
     },
     {
       "role": "Media Member & Discord Server Builder",
       "org": "AWS Cloud Club SGU",
       "period": "12/2025 - Present",
-      "description": "Contributed to the club's media activities and built a Discord server for the community.",
+      "description": "Supported club media work and built a Discord server for the community.",
       "link": "https://drive.google.com/file/d/10xrtaoYFu-Q-QMtuv8Wzm22ZRRJat06L/view?usp=drive_link"
     }
   ]
