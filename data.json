@@ -1,0 +1,148 @@
+{
+  "personal": {
+    "name": "Trương Gia Hào",
+    "title": "Software Developer",
+    "subtitle": "IT Student · Builder · Explorer",
+    "avatar": "",
+    "cv": "https://drive.google.com/file/d/1S8MrM2ylXNl6j0j6IVv_xrJPeSk_VlxD/view?usp=drive_link",
+    "email": "truonggiahao24@gmail.com",
+    "github": "https://github.com/HaoWasabi",
+    "linkedin": "https://linkedin.com/in/hao-truong-855664346",
+    "about": "An Information Technology student at Saigon University, passionate about building practical software and exploring new technologies. I am always looking for opportunities to learn, contribute to impactful projects, and grow every day."
+  },
+
+  "education": [
+    {
+      "school": "FCAJ Workforce Bootcamp 2026",
+      "degree": "First Cloud AI Journey",
+      "period": "03/2026 - Present",
+      "gpa": null,
+      "link": "https://drive.google.com/file/d/1zeaCW3WHFuU1DnrVL-7N48shyPR-0Xfj/view?usp=drive_link"
+    },
+    {
+      "school": "NIC x Google",
+      "degree": "Google Project Management Specialization",
+      "period": "03/2026",
+      "gpa": null,
+      "link": "https://www.coursera.org/account/accomplishments/specialization/CIZNCKC5PNPD"
+    },
+    {
+      "school": "LinkedIn",
+      "degree": "Digital Networking Strategies",
+      "period": "06/2025",
+      "gpa": null,
+      "link": "https://www.linkedin.com/learning/certificates/3eea488b40b6e02cd3227bb23fb0ecc38c99dee5e20b600e658737f574dd7773"
+    },
+    {
+      "school": "Saigon University",
+      "degree": "Information Technology",
+      "period": "09/2022 - Present",
+      "gpa": "2.98 / 4.0",
+      "link": "#education"
+    }
+  ],
+
+  "skills": {
+    "languages": [
+      "Python", "C#", "Java", "PHP"
+    ],
+    "databases": [
+      "MySQL", "SQL Server", "SQLite"
+    ],
+    "cloud": [
+      "AWS", "Firebase", "Cloudinary", "Colab"
+    ],
+    "tools": [
+      "Git", "GitHub", "Visual Studio", "VS Code", 
+      "Jupyter", "Gemini", "Google Workspace"
+    ]
+  },
+
+  "projects": [
+    {
+      "title": "GPP-PSO-LSTM",
+      "type": "Research",
+      "period": "01/2026",
+      "description": "A PSO algorithm for predicting gold prices based on real-time data.",
+      "tech": ["Jupyter", "Colab"],
+      "link": "https://github.com/HaoWasabi/GPP_PSO_LSTM"
+    },
+    {
+      "title": "BuocChanSoiDa",
+      "type": "Website",
+      "period": "01/2026",
+      "description": "An online platform for street food storytelling and guides.",
+      "tech": ["Python", "Django", "MySQL", "HTML", "CSS"],
+      "link": "https://github.com/HaoWasabi/BuocChanSoiDa"
+    },
+    {
+      "title": "Store Management",
+      "type": "Web & App",
+      "period": "09/2025",
+      "description": "A full-stack online store management system built with .NET MVC and MySQL.",
+      "tech": ["C#", ".NET", "MySQL", "MVC"],
+      "link": "https://github.com/HaoWasabi/Store_Management"
+    },
+    {
+      "title": "MeepBookery",
+      "type": "Website",
+      "period": "01/2025",
+      "description": "A complete online bookstore platform built with PHP MVC.",
+      "tech": ["PHP", "HTML", "CSS", "SQL Server", "MVC"],
+      "link": "https://github.com/HaoWasabi/MeepBookery"
+    },
+    {
+      "title": "Library Management",
+      "type": "Desktop App",
+      "period": "01/2025",
+      "description": "A library management system built with WinForms and SQL Server.",
+      "tech": ["C#", ".NET", "WinForms", "SQL Server"],
+      "link": "https://github.com/HaoWasabi/QuanLyThuQuany"
+    },
+    {
+      "title": "Aiko-Novel",
+      "type": "Website",
+      "period": "01/2024",
+      "description": "An online novel reading platform powered by Django, HTML/CSS, and SQLite.",
+      "tech": ["Python", "Django", "SQLite", "HTML", "CSS"],
+      "link": "https://github.com/HaoWasabi/Aiko-Novel"
+    }
+  ],
+
+  "experience": [
+    {
+      "role": "Participant in CAREER TALK: IT INTERNSHIP - Break Through Your Internship in the AI Era",
+      "org": "Rikkei Academy",
+      "period": "04/2026",
+      "description": "Joined a career talk on IT internships in the AI era and learned about the latest trends and internship opportunities."
+    },
+    {
+      "role": "Participant in Study Jams 2026: GenAI Express Demo Day",
+      "org": "GDG on Campus SGU",
+      "period": "04/2026",
+      "description": "Participated in a Gen AI hackathon organized by GDG on Campus SGU.",
+      "link": "https://drive.google.com/file/d/1VC8WwPYDtehWQI4idraJAnXrjYxA1w2J/view?usp=drive_link"
+    },
+    {
+      "role": "Participant in FCAJ Community Day",
+      "org": "AWS First Cloud AI Journey",
+      "period": "03/2026",
+      "description": "Learned the latest knowledge and trends in Platform Engineering, DevOps, GenAIOps, and the rise of the agentic era.",
+      "link": "https://drive.google.com/file/d/1zeaCW3WHFuU1DnrVL-7N48shyPR-0Xfj/view?usp=drive_link"
+    },
+    {
+      "role": "Participant in AWS CLOUD TRAINING: Networking - Storage - Security - Gen AI",
+      "org": "AWS Cloud Clubs",
+      "period": "12/2025",
+      "description": "Completed an in-depth training program on networking, storage, security, and Gen AI organized by AWS Cloud Clubs.",
+      "link": "https://drive.google.com/file/d/1HtQwadE7v_rI5_rmBGXT4Qd9ncXJCt6D/view?usp=drive_link"
+    },
+    {
+      "role": "Media Member & Discord Server Builder",
+      "org": "AWS Cloud Club SGU",
+      "period": "12/2025 - Present",
+      "description": "Contributed to the club's media activities and built a Discord server for the community.",
+      "link": "https://drive.google.com/file/d/10xrtaoYFu-Q-QMtuv8Wzm22ZRRJat06L/view?usp=drive_link"
+    }
+  ]
+}
