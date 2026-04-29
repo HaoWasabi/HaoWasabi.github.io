@@ -1,0 +1,57 @@
+name: Deploy static portfolio to AWS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: aws-static-portfolio
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: ap-southeast-1
+  AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+  AWS_CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+  AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Validate static files
+        run: |
+          test -f index.html
+          test -f styles.css
+          test -f app.js
+          test -f data.json
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync site to S3
+        run: |
+          aws s3 sync . "s3://${AWS_S3_BUCKET}" \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "workflows/*"
+
+      - name: Invalidate CloudFront cache
+        if: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${AWS_CLOUDFRONT_DISTRIBUTION_ID}" \
+            --paths "/*"
