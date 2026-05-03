@@ -106,6 +106,8 @@ function renderAll(data) {
 
   // Observe reveals
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // Ensure hero CTA buttons share the same width as the primary button
+  if (typeof equalizeHeroButtons === 'function') equalizeHeroButtons();
 }
 
 function renderEducation(education) {
@@ -216,6 +218,25 @@ function renderContact(personal) {
     </a>
   `;
 }
+
+function equalizeHeroButtons() {
+  try {
+    const cta = document.querySelector('.hero-cta');
+    if (!cta) return;
+    const primary = cta.querySelector('.btn-primary');
+    if (!primary) return;
+    const buttons = Array.from(cta.querySelectorAll('.btn'));
+    // Reset inline widths so measurement is accurate
+    buttons.forEach(b => { b.style.width = ''; });
+    const refWidth = Math.ceil(primary.getBoundingClientRect().width);
+    buttons.forEach(b => { b.style.width = refWidth + 'px'; });
+  } catch (e) {
+    // Non-critical, ignore
+  }
+}
+
+// Recalc when viewport changes
+window.addEventListener('resize', () => { equalizeHeroButtons(); });
 
 // Khởi chạy
 window.addEventListener('load', loadData);
