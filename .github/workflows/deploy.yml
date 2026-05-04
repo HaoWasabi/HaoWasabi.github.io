@@ -3,7 +3,7 @@ name: Deploy static portfolio to AWS
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 permissions:
