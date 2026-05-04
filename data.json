@@ -8,10 +8,9 @@
     "email": "truonggiahao24@gmail.com",
     "github": "https://github.com/HaoWasabi",
     "linkedin": "https://linkedin.com/in/hao-truong-855664346",
-    "about": "I am an Information Technology student at Saigon University who builds practical software with Python, C#, Java, PHP, and cloud tools. I focus on learning fast, contributing to real projects, and improving every day."
-  },
+    "about": "I am an Information Technology student at Saigon University who builds practical software with Python, C#, Java, PHP, and cloud tools. I focus on learning fast, contributing to real projects, and improving every day.",
 
-  "education": [
+    "education": [
     {
       "school": "FCAJ Workforce Bootcamp 2026",
       "degree": "First Cloud AI Journey",
@@ -145,4 +144,53 @@
       "link": "https://drive.google.com/file/d/10xrtaoYFu-Q-QMtuv8Wzm22ZRRJat06L/view?usp=drive_link"
     }
   ]
+  ,
+  "blog": [
+      {
+        "id": "5",
+        "title": "Optimizing LSTM with PSO - Where Boldness Meets AI",
+        "date": "2026-04-27",
+        "excerpt": "<p>In our final year, instead of staying in the \"comfort zone\" with conventional topics, my partner, Nguyen Van An and I decided to dive into the most volatile \"noise\" of the financial market: XAU/USD Exchange Rate Forecasting.</p>",
+        "image": "img/post05.jpg",
+        "tags": ["Machine Learning", "Python", "PSO-LSTM"],
+        "contentFile": "blog/post05.md"
+      },
+      {
+        "id": "4",
+        "title": "Amazing memories at AWS re:Invent re:Cap Vietnam 2026 ☁️",
+        "date": "2026-01-21",
+        "excerpt": "<p>A truly meaningful day where she not only received updates on ML/AI formulas but also had the opportunity to please her amazing colleagues.</p>",
+        "image": "img/post04.jpg",
+        "tags": ["AWS", "reInventRecap", "GenAI"],
+        "contentFile": "blog/post04.md"
+      },
+      {
+        "id": "3",
+        "title": "Wrapping up 2025 with a meaningful milestone! 🔥",
+        "date": "2026-01-01",
+        "excerpt": "<p>The AWS CLOUD TRAINING 2025 journey has been more than just acquiring technical knowledge; it was a chance to connect and draw immense inspiration from the AWS Cloud Club Captains. </p>",
+        "image": "img/post03.jpg",
+        "tags": ["AWSCloudClub", "FirstCloudAIJourney"],
+        "contentFile": "blog/post03.md"
+      },
+      {
+        "id": "2",
+        "title": "☁️ [ RECAP | CASTING DAY – AWS CLOUD CLUB SGU ] ☁️",
+        "date": "2025-12-01",
+        "excerpt": "<p>This was my first time attending the club's membership selection, but what I received exceeded all expectations thanks to the sincere sharing from Captain Tran Duc Anh</p>",
+        "image": "img/post02.jpg",
+        "tags": ["SGU", "AWSCloudClubSGU", "AC2SGU"],
+        "contentFile": "blog/post02.md"
+      },
+      {
+        "id": "1",
+        "title": "My first online cetificate! 🎉",
+        "date": "2025-05-21",
+        "excerpt": "<p>I'd like to thank NIC, Google, and Saigon University for providing a free, practical, and accessible learning program that helps students access AI knowledge in a systematic and effective way.</p>",
+        "image": "img/post01.jpg",
+        "tags": ["journeywithGCC", "NIC", "GrowwithGoogle"],
+        "contentFile": "blog/post01.md"
+      }
+    ]
+  }
 }

@@ -94,10 +94,11 @@ function renderAll(data) {
   }
 
   // Render sections
-  renderEducation(data.education);
-  renderSkills(data.skills);
-  renderProjects(data.projects);
-  renderExperience(data.experience);
+  renderEducation(p.education || data.education || []);
+  renderSkills(p.skills || data.skills || {});
+  renderProjects(p.projects || data.projects || []);
+  renderBlog(p.blog || data.blog || []);
+  renderExperience(p.experience || data.experience || []);
   renderContact(p);
 
   // Footer
@@ -109,6 +110,204 @@ function renderAll(data) {
   // Ensure hero CTA buttons share the same width as the primary button
   if (typeof equalizeHeroButtons === 'function') equalizeHeroButtons();
 }
+
+function renderBlog(posts) {
+  const container = document.getElementById('blog-grid');
+  if (!container) return;
+  container.innerHTML = '';
+  posts.forEach(post => {
+    const card = document.createElement('div');
+    card.className = 'glass-card blog-card';
+
+    // Image (with error handling / placeholder)
+    if (post.image) {
+      const img = document.createElement('img');
+      img.className = 'blog-image';
+      img.alt = post.title;
+      img.src = post.image;
+      img.addEventListener('error', () => {
+        post.image = '';
+        const ph = document.createElement('div');
+        ph.className = 'blog-placeholder';
+        ph.textContent = 'No image available';
+        if (img && img.parentNode) img.parentNode.replaceChild(ph, img);
+      });
+      card.appendChild(img);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'blog-placeholder';
+      ph.textContent = 'No image available';
+      card.appendChild(ph);
+    }
+
+    const contentWrap = document.createElement('div');
+    const meta = document.createElement('div');
+    meta.className = 'blog-meta';
+    meta.textContent = `${post.tags ? post.tags.join(' · ') : ''}${post.tags && post.date ? ' · ' : ''}${post.date || ''}`;
+
+    const title = document.createElement('div');
+    title.className = 'blog-title';
+    title.textContent = post.title;
+
+    const excerpt = document.createElement('div');
+    excerpt.className = 'blog-excerpt';
+    excerpt.innerHTML = post.excerpt || '';
+
+    const actions = document.createElement('div');
+    actions.style.marginTop = '12px';
+    actions.innerHTML = `<a href="#" class="project-link view-more" data-id="${post.id}">View more →</a>`;
+
+    contentWrap.appendChild(meta);
+    contentWrap.appendChild(title);
+    contentWrap.appendChild(excerpt);
+    contentWrap.appendChild(actions);
+    card.appendChild(contentWrap);
+
+    container.appendChild(card);
+  });
+
+  // attach handlers (delegated)
+  container.querySelectorAll('.view-more').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = btn.getAttribute('data-id');
+      const post = posts.find(p => p.id === id);
+      if (post) showPostModal(post);
+    });
+  });
+}
+
+function showPostModal(post) {
+  const modal = document.getElementById('post-modal');
+  const contentEl = document.getElementById('post-modal-content');
+  if (!modal || !contentEl) return;
+  // Build DOM to attach image error handler
+  contentEl.innerHTML = '<div class="post-body">Loading...</div>';
+  if (post.image) {
+    const img = document.createElement('img');
+    img.src = post.image;
+    img.alt = post.title;
+    img.addEventListener('error', () => {
+      post.image = '';
+      const ph = document.createElement('div');
+      ph.className = 'blog-placeholder';
+      ph.style.height = '220px';
+      ph.textContent = 'No image available';
+      if (img && img.parentNode) img.parentNode.replaceChild(ph, img);
+    });
+    contentEl.appendChild(img);
+  }
+  const t = document.createElement('div'); t.className = 'post-title'; t.textContent = post.title; contentEl.appendChild(t);
+  const d = document.createElement('div'); d.className = 'post-date'; d.textContent = post.date || ''; contentEl.appendChild(d);
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+
+  loadPostBody(post).then((bodyHtml) => {
+    const existingBody = contentEl.querySelector('.post-body');
+    if (existingBody) existingBody.remove();
+    const bodyEl = document.createElement('div');
+    bodyEl.className = 'post-body';
+    bodyEl.innerHTML = bodyHtml;
+    contentEl.appendChild(bodyEl);
+  }).catch(() => {
+    const existingBody = contentEl.querySelector('.post-body');
+    if (existingBody) existingBody.textContent = 'Unable to load post content.';
+  });
+}
+
+async function loadPostBody(post) {
+  if (post.contentFile) {
+    const res = await fetch(post.contentFile);
+    if (!res.ok) throw new Error('Failed to load post content file');
+    const markdown = await res.text();
+    return renderMarkdown(markdown);
+  }
+
+  return post.content || '';
+}
+
+function renderMarkdown(markdown) {
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+  const html = [];
+  let listType = null;
+  let listItems = [];
+
+  const flushList = () => {
+    if (!listType || !listItems.length) return;
+    const tag = listType === 'ol' ? 'ol' : 'ul';
+    html.push(`<${tag}>${listItems.map(item => `<li>${formatInlineMarkdown(item)}</li>`).join('')}</${tag}>`);
+    listType = null;
+    listItems = [];
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
+      flushList();
+      continue;
+    }
+
+    if (line.startsWith('# ')) {
+      flushList();
+      html.push(`<h1>${formatInlineMarkdown(line.slice(2))}</h1>`);
+      continue;
+    }
+
+    if (line.startsWith('## ')) {
+      flushList();
+      html.push(`<h2>${formatInlineMarkdown(line.slice(3))}</h2>`);
+      continue;
+    }
+
+    if (line.startsWith('- ')) {
+      if (listType !== 'ul') {
+        flushList();
+        listType = 'ul';
+      }
+      listItems.push(line.slice(2).trim());
+      continue;
+    }
+
+    if (/^\d+\.\s+/.test(line)) {
+      if (listType !== 'ol') {
+        flushList();
+        listType = 'ol';
+      }
+      listItems.push(line.replace(/^\d+\.\s+/, '').trim());
+      continue;
+    }
+
+    flushList();
+    html.push(`<p>${formatInlineMarkdown(line)}</p>`);
+  }
+
+  flushList();
+  return html.join('\n');
+}
+
+function formatInlineMarkdown(text) {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+}
+
+function closePostModal() {
+  const modal = document.getElementById('post-modal');
+  if (!modal) return;
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+// modal close listeners
+window.addEventListener('load', () => {
+  const closeBtn = document.getElementById('modal-close');
+  const modal = document.getElementById('post-modal');
+  if (closeBtn) closeBtn.addEventListener('click', closePostModal);
+  if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closePostModal(); });
+});
 
 function renderEducation(education) {
   const container = document.getElementById('education-list');

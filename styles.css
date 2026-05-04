@@ -488,3 +488,29 @@ footer {
   opacity: 1;
   transform: none;
 }
+
+/* Blog specific */
+.blog-grid { grid-template-columns: 1fr 1fr; display: grid; gap: 24px; }
+/* Make image sit above post content on all breakpoints */
+.blog-card { display: grid; grid-template-columns: 1fr; gap: 14px; align-items: start; }
+.blog-card .blog-image { width: 100%; height: 160px; border-radius: 10px; object-fit: cover; border: 1px solid var(--glass-border); display: block; }
+.blog-placeholder { display:flex; align-items:center; justify-content:center; width:100%; height:160px; border-radius:10px; background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(56,189,248,0.06)); color:var(--text-muted); font-family:var(--font-mono); }
+.blog-card .blog-meta { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-bottom: 6px; }
+.blog-card .blog-title { font-weight: 700; font-size: 1.03rem; margin-bottom: 6px; }
+.blog-card .blog-excerpt { color: var(--text-muted); font-size: 0.92rem; }
+
+/* Modal for post */
+.post-modal { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.65); z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 240ms ease; }
+.post-modal.open { opacity: 1; pointer-events: auto; }
+.post-modal-inner { width: min(920px, calc(100% - 40px)); max-height: calc(100vh - 80px); overflow: auto; background: var(--bg-mid); border: 1px solid var(--glass-border); border-radius: 12px; padding: 28px; position: relative; }
+.post-modal .modal-close { position: absolute; top: 12px; right: 12px; background: transparent; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.post-modal-content img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 12px; }
+.post-modal-content .post-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+.post-modal-content .post-date { font-family: var(--font-mono); color: var(--text-muted); margin-bottom: 12px; }
+.post-modal-content .post-body { color: var(--text-muted); line-height: 1.7; }
+
+@media (max-width: 768px) {
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-card { grid-template-columns: 1fr; }
+  .blog-card .blog-image { width: 100%; height: 180px; }
+}

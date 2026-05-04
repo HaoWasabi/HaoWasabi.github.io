@@ -23,6 +23,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#blog">Blogs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -64,7 +65,6 @@
     </section>
 
     <div class="section-divider"></div>
-
     <!-- EXPERIENCE -->
     <section id="experience" class="reveal">
       <div class="section-label">Activities</div>
@@ -106,6 +106,14 @@
         </div>
       </div>
     </section>
+    <div class="section-divider"></div>
+
+    <!-- BLOG -->
+    <section id="blog" class="reveal">
+      <div class="section-label">Writes</div>
+      <div class="section-title">Recent <span>Posts</span></div>
+      <div class="projects-grid blog-grid" id="blog-grid"></div>
+    </section>
 
     <div class="section-divider"></div>
 
@@ -121,6 +129,13 @@
   <footer>
     <p id="footer-text" ></p>
   </footer>
+
+  <div id="post-modal" class="post-modal" aria-hidden="true">
+    <div class="post-modal-inner">
+      <button class="modal-close" id="modal-close" aria-label="Close post">×</button>
+      <div class="post-modal-content" id="post-modal-content"></div>
+    </div>
+  </div>
 
   <script src="app.js" defer></script>
 </body>
